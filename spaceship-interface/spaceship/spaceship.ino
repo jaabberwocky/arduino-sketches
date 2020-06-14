@@ -3,6 +3,7 @@
 */
 
 int switchState = 0;
+int delay_duration;
 
 void print_delay(int delay_duration) {
     Serial.print("Delay duration: ");
@@ -22,7 +23,7 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
     switchState = digitalRead(2);
-    int delay_duration = random(100, 1000);
+    delay_duration = random(100, 1000);
     print_delay(delay_duration);
   
     if (switchState == LOW) {
@@ -46,9 +47,9 @@ void loop() {
       digitalWrite(5, HIGH);
   
       // toggle LEDs
-      delay(delay_duration);
+      delay(100);
       digitalWrite(4, HIGH);
       digitalWrite(5, LOW);
-      delay(delay_duration);
+      delay(100);
     }
 }
